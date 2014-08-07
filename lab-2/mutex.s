@@ -12,7 +12,7 @@ lock_mutex:
 	ldr r1, =locked
 .L1:
 	ldrex r2, [r0]
-	cmp r2, #0
+	cmp r2, #0                @Unlock?(=0?)
 		strexeq r2, r1, [r0]
 		cmpeq r2, #0
 		bne .L1
