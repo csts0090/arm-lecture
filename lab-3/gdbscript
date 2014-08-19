@@ -1,0 +1,6 @@
+#!/bin/bash
+make clean
+make
+yes 7 | qemu-arm -g 1234 -L /usr/arm-linux-gnueabihf ./fibseq &
+./gdbcom.sh | arm-none-eabi-gdb -x gdbscript fibseq 
+ 
